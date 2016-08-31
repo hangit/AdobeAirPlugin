@@ -166,7 +166,7 @@ Your will need to create an account and login to https://portal.hangit.com to cr
 			.setAndroidKey("your android key goes here")
 			.setiOSKey("your ios key goes here");
 
- At the very start of your application's execution, initialize the HangIt API by calling `HangIt.create(config)`, followed by `HangIt.hangIt.startAllServices()`.  You should call this in either your Document Class constructor function, or on 'frame 1' if you are usins legacy timeline style Flash code.
+ At the very start of your application's execution, initialize the HangIt API by calling `HangIt.create(config)`, followed by `HangIt.hangIt.startAllServices()`.  You should call this in either your Document Class constructor function, or on 'frame 1' if you are using legacy timeline style Flash code.
 
   You may use the `HangIt.isSupported()` function to determine if the platform your app is running on supports the HangIt API (either Android or iOS):
 
