@@ -2,10 +2,10 @@
 
 <!--- This guide has the following sections:
 
-* [Overview](#overview) 
-* [Include the HangIt Library](#include) 
+* [Overview](#overview)
+* [Include the HangIt Library](#include)
 * [Update Your Application Descriptor](#descriptor)
-* [ActionScript Integration](#integration) 
+* [ActionScript Integration](#integration)
 
 -->
 
@@ -61,8 +61,8 @@ To use the extension for either iOS or Android, add the extension identifier for
 
 To use the extension for iOS, you'll need to include the *NSAppTransportSecurity* data show below into your Application Descriptor's `<InfoAdditions>` block inside the `<iPhone>` block, set the `MinimumOSVersion` to 8.0, and include the required `UIBackgroundModes` and `NSLocationWhenInUseUsageDescription` and `NSLocationAlwaysUsageDescription` values:
 
-	<InfoAdditions> 
-		<![CDATA[ 
+	<InfoAdditions>
+		<![CDATA[
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key><true/>
@@ -70,13 +70,13 @@ To use the extension for iOS, you'll need to include the *NSAppTransportSecurity
 
     <key>MinimumOSVersion</key>
     <string>8.0</string>
-				
-    <key>UIBackgroundModes</key> 
-    <array> 
-         <string>location</string> 
+
+    <key>UIBackgroundModes</key>
+    <array>
+         <string>location</string>
        	<string>fetch</string>
-    </array> 
-				
+    </array>
+
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We offer great deals at places near you, so let us know where you are. We’ll never spam you.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
@@ -91,7 +91,7 @@ In order to use the HangIt Extension on Android, you'll need to update the `mani
  	<android>
         <manifestAdditions><![CDATA[
 			<manifest android:installLocation="auto">
-				
+
 				<!-- These permissions are required by HangIt -->
 				<uses-permission android:name="android.permission.INTERNET" />
 				<uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -106,7 +106,7 @@ In order to use the HangIt Extension on Android, you'll need to update the `mani
 
 				<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 
-					
+
        <service android:name="com.hangit.android.hangit_sdk.ServiceHangITLocation">
             <meta-data android:name="com.hangit.android.hangit_sdk.notification_icon" android:value="ic_launcher"/>
             <meta-data android:name="com.hangit.android.hangit_sdk.notification_activity" android:value="com.hangit.android.hangit_sdk.UIWebViewActivity"/>
@@ -128,9 +128,9 @@ In order to use the HangIt Extension on Android, you'll need to update the `mani
         <activity android:name="com.hangit.android.hangit_sdk.UINotificationBackActivity"/>
         <activity android:name="com.hangit.android.hangit_sdk.UIAppNextActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.hangit.android.hangit_sdk.UIWalletActivity" android:screenOrientation="portrait"/>
-					
+
         <!--meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyA6anZrDFdlkwkWN41s73rYnzB-INSIgD0"/-->
-					
+
         <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
         <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
 
@@ -142,7 +142,7 @@ In order to use the HangIt Extension on Android, you'll need to update the `mani
         </receiver>
         <service android:exported="false" android:name="com.estimote.sdk.service.BeaconService"/>
 
-					
+
 				</application>
 			</manifest>			
 		]]></manifestAdditions>
@@ -160,7 +160,7 @@ Import the  API Packages at the top of any source files that reference HangIt:
 	import com.hangit.nativeextensions.*;
 
 
-Your HangIt contact will provide you with an iOS SDK Key, Android SDK Key, or both, depending on the target platforms of your project.  Create a `HangItConfig` object that contains these values:
+Your will need to create an account and login to https://portal.hangit.com to create an app and generate your App ID Key set below, depending on the target platforms of your project.  Create a `HangItConfig` object that contains these values:
 
 		var config:HangItConfig=new HangItConfig()
 			.setAndroidKey("your android key goes here")
@@ -194,9 +194,3 @@ During testing, you may need to clear the device in order to test a location bas
 
 		// clear device to test location based notifications again
 		HangIt.hangIt.clearDevice();
-
-
-
-
-
-
