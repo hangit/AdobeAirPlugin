@@ -130,6 +130,6 @@
 
   <extensions>
     <extensionID>com.hangit.extensions.HangIt</extensionID>
-	  <extensionID>com.milkmangames.extensions.GoogleServices</extensionID>
+	  <extensionID>com.hangit.extensions.GoogleServices</extensionID>
   </extensions>
 </application>
